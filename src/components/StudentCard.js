@@ -7,7 +7,7 @@ import {
   CardTitle
 } from 'reactstrap';
 import PropTypes from 'prop-types';
-import { deleteStudent } from '../helpers/data/StudentData';
+import { deleteStudent } from '../helpers/data/PlayerData';
 import StudentForm from './StudentForm';
 
 const StudentCard = ({
