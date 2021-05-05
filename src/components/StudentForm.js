@@ -8,7 +8,7 @@ import {
   Input
 } from 'reactstrap';
 import PropTypes from 'prop-types';
-import { addStudent, updateStudent } from '../helpers/data/StudentData';
+import { addStudent, updateStudent } from '../helpers/data/PlayerData';
 
 const StudentForm = ({
   formTitle,
