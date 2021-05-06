@@ -2,15 +2,15 @@ import React, { useState, useEffect } from 'react';
 import firebase from 'firebase/app';
 import 'firebase/auth';
 import NavBar from '../components/NavBar';
-import { getStudents } from '../helpers/data/PlayerData';
+import { getPlayers } from '../helpers/data/PlayerData';
 import Routes from '../helpers/Routes';
 
 function App() {
-  const [students, setStudents] = useState([]);
+  const [players, setPlayers] = useState([]);
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    getStudents().then(setStudents);
+    getPlayers().then(setPlayers);
   }, []);
 
   useEffect(() => {
@@ -18,8 +18,8 @@ function App() {
       if (authed) {
         // something to happen
         const userInfoObj = {
-          fullName: authed.displayName,
-          profileImage: authed.photoURL,
+          name: authed.displayName,
+          imageUrl: authed.photoURL,
           uid: authed.uid,
           user: authed.email.split('@')[0]
         };
@@ -34,8 +34,8 @@ function App() {
     <>
       <NavBar user={user} />
       <Routes
-        students={students}
-        setStudents={setStudents}
+        players={players}
+        setPlayers={setPlayers}
       />
     </>
   );
