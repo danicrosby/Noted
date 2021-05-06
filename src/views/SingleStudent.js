@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import SingleStudentCard from '../components/SingleStudentCard';
+import SingleStudentCard from '../components/SinglePlayerCard';
 import { getSingleStudent } from '../helpers/data/PlayerData';
 
 export default function SingleStudent() {

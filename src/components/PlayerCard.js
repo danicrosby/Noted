@@ -7,15 +7,15 @@ import {
   CardTitle
 } from 'reactstrap';
 import PropTypes from 'prop-types';
-import { deleteStudent } from '../helpers/data/PlayerData';
-import StudentForm from './StudentForm';
+import { deletePlayer } from '../helpers/data/PlayerData';
+import PlayerForm from './PlayerForm';
 
-const StudentCard = ({
+const PlayerCard = ({
   firebaseKey,
   name,
-  grade,
-  teacher,
-  setStudents
+  position,
+  uid,
+  setPlayers
 }) => {
   const [editing, setEditing] = useState(false);
   const history = useHistory();
@@ -23,14 +23,14 @@ const StudentCard = ({
   const handleClick = (type) => {
     switch (type) {
       case 'delete':
-        deleteStudent(firebaseKey)
-          .then(setStudents);
+        deletePlayer(firebaseKey)
+          .then(setPlayers);
         break;
       case 'edit':
         setEditing((prevState) => !prevState);
         break;
       case 'view':
-        history.push(`/students/${firebaseKey}`);
+        history.push(`/players/${firebaseKey}`);
         break;
       default:
         console.warn('nothing selected');
@@ -40,33 +40,33 @@ const StudentCard = ({
   return (
     <Card body>
       <CardTitle tag="h5">{name}</CardTitle>
-      <CardText>Grade: {grade}</CardText>
-      <CardText>Teacher: {teacher}</CardText>
-      <Button color="warning" onClick={() => handleClick('view')}>View Student</Button>
-      <Button color="danger" onClick={() => handleClick('delete')}>Delete Student</Button>
+      <CardText>position: {position}</CardText>
+      <CardText>uid: {uid}</CardText>
+      <Button color="warning" onClick={() => handleClick('view')}>View Player</Button>
+      <Button color="danger" onClick={() => handleClick('delete')}>Delete Player</Button>
       <Button color="info" onClick={() => handleClick('edit')}>
-        {editing ? 'Close Form' : 'Edit Student'}
+        {editing ? 'Close Form' : 'Edit player'}
       </Button>
       {
-        editing && <StudentForm
-          formTitle='Edit Student'
-          setStudents={setStudents}
+        editing && <PlayerForm
+          formTitle='Edit Player'
+          setPlayers={setPlayers}
           firebaseKey={firebaseKey}
           name={name}
-          grade={grade}
-          teacher={teacher}
+          position={position}
+          uid={uid}
         />
       }
     </Card>
   );
 };
 
-StudentCard.propTypes = {
+PlayerCard.propTypes = {
   firebaseKey: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
-  teacher: PropTypes.string.isRequired,
-  grade: PropTypes.number.isRequired,
-  setStudents: PropTypes.func
+  uid: PropTypes.string.isRequired,
+  position: PropTypes.number.isRequired,
+  setPlayers: PropTypes.func
 };
 
-export default StudentCard;
+export default PlayerCard;

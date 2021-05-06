@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import StudentForm from '../components/StudentForm';
+import StudentForm from '../components/PlayerForm';
 
 function AddStudent({ setStudents }) {
   return (

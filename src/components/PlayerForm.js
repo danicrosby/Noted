@@ -8,87 +8,87 @@ import {
   Input
 } from 'reactstrap';
 import PropTypes from 'prop-types';
-import { addStudent, updateStudent } from '../helpers/data/PlayerData';
+import { addPlayer, updatePlayer } from '../helpers/data/PlayerData';
 
-const StudentForm = ({
+const PlayerForm = ({
   formTitle,
-  setStudents,
+  setPlayers,
   name,
-  teacher,
-  grade,
+  position,
+  uid,
   firebaseKey
 }) => {
-  const [student, setStudent] = useState({
+  const [player, setplayer] = useState({
     name: name || '',
-    teacher: teacher || '',
-    grade: grade || 0,
+    position: position || '',
+    uid: uid || 0,
     firebaseKey: firebaseKey || null
   });
   const history = useHistory();
 
   const handleInputChange = (e) => {
-    setStudent((prevState) => ({
+    setplayer((prevState) => ({
       ...prevState,
       [e.target.name]:
-        e.target.name === 'grade' ? Number(e.target.value) : e.target.value,
+        e.target.name === 'uid' ? Number(e.target.value) : e.target.value,
     }));
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (student.firebaseKey) {
-      updateStudent(student).then(setStudents);
+    if (player.firebaseKey) {
+      updatePlayer(player).then(setPlayer);
     } else {
-      addStudent(student).then((response) => {
-        setStudents(response);
-        history.push('/students');
+      addPlayer(player).then((response) => {
+        setPlayer(response);
+        history.push('/players');
       });
 
-      setStudent({
+      setplayer({
         name: '',
-        teacher: '',
-        grade: 0,
+        position: '',
+        uid: 0,
         firebaseKey: null
       });
     }
   };
 
   return (
-    <div className='student-form'>
-      <Form id='addStudentForm' autoComplete='off' onSubmit={handleSubmit}>
+    <div className='player-form'>
+      <Form id='addPlayerForm' autoComplete='off' onSubmit={handleSubmit}>
         <h2>{formTitle}</h2>
         <FormGroup>
           <Label for="name">Name:</Label>
           <Input
             name='name'
             id='name'
-            value={student.name}
+            value={player.name}
             type='text'
-            placeholder='Enter a Student Name'
+            placeholder='Enter a Player Name'
             onChange={handleInputChange}
           />
         </FormGroup>
 
         <FormGroup>
-          <Label for="teacher">Teacher:</Label>
+          <Label for="position">Position:</Label>
           <Input
-            name='teacher'
-            id='teacher'
-            value={student.teacher}
+            name='position'
+            id='position'
+            value={player.position}
             type='text'
-            placeholder='Enter a Teacher Name'
+            placeholder='Enter a position Name'
             onChange={handleInputChange}
           />
         </FormGroup>
 
         <FormGroup>
-          <Label for="grade">Grade:</Label>
+          <Label for="uid">UID:</Label>
           <Input
-            name='grade'
-            id='grade'
-            value={student.grade}
+            name='uid'
+            id='uid'
+            value={player.uid}
             type='number'
-            placeholder='Enter a Grade'
+            placeholder='Enter a uid'
             onChange={handleInputChange}
           />
         </FormGroup>
@@ -99,13 +99,13 @@ const StudentForm = ({
   );
 };
 
-StudentForm.propTypes = {
+PlayerForm.propTypes = {
   formTitle: PropTypes.string.isRequired,
-  setStudents: PropTypes.func,
+  setPlayer: PropTypes.func,
   name: PropTypes.string,
-  teacher: PropTypes.string,
-  grade: PropTypes.number,
+  position: PropTypes.string,
+  uid: PropTypes.number,
   firebaseKey: PropTypes.string
 };
 
-export default StudentForm;
+export default PlayerForm;

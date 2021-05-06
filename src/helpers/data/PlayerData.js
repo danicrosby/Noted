@@ -22,19 +22,19 @@ const addPlayer = (obj) => new Promise((resolve, reject) => {
 
 const deletePlayer = (firebaseKey) => new Promise((resolve, reject) => {
   axios.delete(`${dbUrl}/players/${firebaseKey}.json`)
-    .then(() => getPlayers().then((studentArray) => resolve(studentArray)))
+    .then(() => getPlayers().then((playerArray) => resolve(playerArray)))
     .catch((error) => reject(error));
 });
 
-const updatePlayer = (student) => new Promise((resolve, reject) => {
-  axios.patch(`${dbUrl}/players/${student.firebaseKey}.json`, student)
+const updatePlayer = (player) => new Promise((resolve, reject) => {
+  axios.patch(`${dbUrl}/players/${player.firebaseKey}.json`, player)
     .then(() => getPlayers().then(resolve))
     .catch((error) => reject(error));
 });
 
 const getSinglePlayer = (firebaseKey) => new Promise((resolve, reject) => {
   axios.get(`${dbUrl}/players/${firebaseKey}.json`)
-    .then((student) => resolve(student.data))
+    .then((player) => resolve(player.data))
     .catch((error) => reject(error));
 });
 
