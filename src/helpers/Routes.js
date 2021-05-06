@@ -1,29 +1,29 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import AddStudent from '../views/AddStudent';
+import AddPlayer from '../views/AddPlayer';
 import Home from '../views/Home';
-import Students from '../views/Students';
-import SingleStudent from '../views/SinglePlayer';
+import Players from '../views/Players';
+import SinglePlayer from '../views/SinglePlayer';
 import NotFound from '../views/NotFound';
 
-export default function Routes({ students, setStudents }) {
+export default function Routes({ players, setPlayers }) {
   return (
     <div>
       <Switch>
         <Route exact path='/' component={Home} />
         <Route
           exact
-          path='/students'
-          component={() => <Students students={students} setStudents={setStudents} />}
+          path='/players'
+          component={() => <Players players={players} setPlayers={setPlayers} />}
         />
         <Route
-          path='/students/:firebaseKey'
-          component={SingleStudent}
+          path='/players/:firebaseKey'
+          component={SinglePlayer}
         />
         <Route
-          path='/add-student'
-          component={() => <AddStudent setStudents={setStudents} />}
+          path='/add-player'
+          component={() => <AddPlayer setPlayers={setPlayers} />}
         />
         <Route path='*' component={NotFound} />
       </Switch>
@@ -32,6 +32,6 @@ export default function Routes({ students, setStudents }) {
 }
 
 Routes.propTypes = {
-  students: PropTypes.array.isRequired,
-  setStudents: PropTypes.func.isRequired
+  players: PropTypes.array.isRequired,
+  setPlayers: PropTypes.func.isRequired
 };

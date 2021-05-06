@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import PlayerCard from '../components/PlayerCard';
 
-function Players({ players, setPlayerDatas }) {
+function Players({ players, setPlayers }) {
   return (
     <>
       <div className="card-container">
@@ -11,8 +11,8 @@ function Players({ players, setPlayerDatas }) {
             key={playerInfo.firebaseKey}
             firebaseKey={playerInfo.firebaseKey}
             name={playerInfo.name}
-            teacher={playerInfo.teacher}
-            grade={Number(playerInfo.grade)}
+            imageUrl={playerInfo.imageUrl}
+            position={Number(playerInfo.postition)}
             setPlayers={setPlayers}
           />
         ))}
@@ -23,7 +23,7 @@ function Players({ players, setPlayerDatas }) {
 
 Players.propTypes = {
   players: PropTypes.array.isRequired,
-  setplayers: PropTypes.func.isRequired
+  setPlayers: PropTypes.func.isRequired
 };
 
 export default Players;

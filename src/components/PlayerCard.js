@@ -14,7 +14,7 @@ const PlayerCard = ({
   firebaseKey,
   name,
   position,
-  uid,
+  imageUrl,
   setPlayers
 }) => {
   const [editing, setEditing] = useState(false);
@@ -30,7 +30,7 @@ const PlayerCard = ({
         setEditing((prevState) => !prevState);
         break;
       case 'view':
-        history.push(`/players/${firebaseKey}`);
+        history.push(`/player/${firebaseKey}`);
         break;
       default:
         console.warn('nothing selected');
@@ -40,12 +40,11 @@ const PlayerCard = ({
   return (
     <Card body>
       <CardTitle tag="h5">{name}</CardTitle>
-      <CardText>position: {position}</CardText>
-      <CardText>uid: {uid}</CardText>
+      <CardText>Position: {position}</CardText>
       <Button color="warning" onClick={() => handleClick('view')}>View Player</Button>
       <Button color="danger" onClick={() => handleClick('delete')}>Delete Player</Button>
       <Button color="info" onClick={() => handleClick('edit')}>
-        {editing ? 'Close Form' : 'Edit player'}
+        {editing ? 'Close Form' : 'Edit Player'}
       </Button>
       {
         editing && <PlayerForm
@@ -54,7 +53,7 @@ const PlayerCard = ({
           firebaseKey={firebaseKey}
           name={name}
           position={position}
-          uid={uid}
+          imgageUrl={imageUrl}
         />
       }
     </Card>
@@ -66,7 +65,8 @@ PlayerCard.propTypes = {
   name: PropTypes.string.isRequired,
   uid: PropTypes.string.isRequired,
   position: PropTypes.number.isRequired,
-  setPlayers: PropTypes.func
+  setPlayers: PropTypes.func,
+  imageUrl: PropTypes.string
 };
 
 export default PlayerCard;
