@@ -12,7 +12,7 @@ import { addPlayer, updatePlayer } from '../helpers/data/PlayerData';
 
 const PlayerForm = ({
   formTitle,
-  setPlayers,
+  setPlayer,
   name,
   position,
   uid,
@@ -41,10 +41,10 @@ const PlayerForm = ({
     } else {
       addPlayer(player).then((response) => {
         setPlayer(response);
-        history.push('/players');
+        history.push('/player');
       });
 
-      setplayer({
+      setPlayer({
         name: '',
         position: '',
         uid: 0,
