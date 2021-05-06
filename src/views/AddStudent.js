@@ -1,20 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import StudentForm from '../components/PlayerForm';
+import PlayerForm from '../components/PlayerForm';
 
-function AddStudent({ setStudents }) {
+function AddPlayer({ setPlayers }) {
   return (
     <div>
-      <StudentForm
-        formTitle='Add Student'
-        setStudents={setStudents}
+      <PlayerForm
+        formTitle='Add Player'
+        setPlayers={setPlayers}
       />
     </div>
   );
 }
 
-AddStudent.propTypes = {
-  setStudents: PropTypes.func.isRequired
+AddPlayer.propTypes = {
+  setPlayers: PropTypes.func.isRequired
 };
 
-export default AddStudent;
+export default AddPlayer;

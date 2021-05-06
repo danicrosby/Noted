@@ -1,19 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import StudentCard from '../components/PlayerCard';
+import PlayerCard from '../components/PlayerCard';
 
-function Students({ students, setPlayerDatas }) {
+function Players({ players, setPlayerDatas }) {
   return (
     <>
       <div className="card-container">
-        {students.map((studentInfo) => (
-          <StudentCard
-            key={studentInfo.firebaseKey}
-            firebaseKey={studentInfo.firebaseKey}
-            name={studentInfo.name}
-            teacher={studentInfo.teacher}
-            grade={Number(studentInfo.grade)}
-            setStudents={setStudents}
+        {players.map((playerInfo) => (
+          <PlayerCard
+            key={playerInfo.firebaseKey}
+            firebaseKey={playerInfo.firebaseKey}
+            name={playerInfo.name}
+            teacher={playerInfo.teacher}
+            grade={Number(playerInfo.grade)}
+            setPlayers={setPlayers}
           />
         ))}
       </div>
@@ -21,9 +21,9 @@ function Students({ students, setPlayerDatas }) {
   );
 }
 
-Students.propTypes = {
-  students: PropTypes.array.isRequired,
-  setStudents: PropTypes.func.isRequired
+Players.propTypes = {
+  players: PropTypes.array.isRequired,
+  setplayers: PropTypes.func.isRequired
 };
 
-export default Students;
+export default Players;
