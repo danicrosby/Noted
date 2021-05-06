@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import AddStudent from '../views/AddStudent';
 import Home from '../views/Home';
 import Students from '../views/Students';
-import SingleStudent from '../views/SingleStudent';
+import SingleStudent from '../views/SinglePlayer';
 import NotFound from '../views/NotFound';
 
 export default function Routes({ students, setStudents }) {
