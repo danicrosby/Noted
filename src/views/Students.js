@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import StudentCard from '../components/StudentCard';
+import StudentCard from '../components/PlayerCard';
 
-function Students({ students, setStudents }) {
+function Students({ students, setPlayerDatas }) {
   return (
     <>
       <div className="card-container">
