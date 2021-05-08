@@ -12,7 +12,7 @@ function Players({ players, setPlayers }) {
             firebaseKey={playerInfo.firebaseKey}
             name={playerInfo.name}
             imageUrl={playerInfo.imageUrl}
-            position={Number(playerInfo.postition)}
+            instrument={playerInfo.instrument}
             setPlayers={setPlayers}
           />
         ))}

@@ -6,7 +6,7 @@ function AddPlayer({ setPlayers }) {
   return (
     <div>
       <PlayerForm
-        formTitle='Add Player'
+        formTitle='Add Musician'
         setPlayers={setPlayers}
       />
     </div>

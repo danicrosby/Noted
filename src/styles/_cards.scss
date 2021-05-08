@@ -1,13 +1,23 @@
 .card-container {
   display: flex;
   flex-flow: row wrap;
+  justify-content: center;
 
-  .card {
-    width: 300px;
-    margin: 5px;
-  }
+    .card {
+      width: 300px;
+      margin: 10px;
+      box-shadow: 12px 12px 12px rgb(241, 241, 241);
+    }
 
-  .card-body {
-    flex: none;
+    .card-img {
+      margin-bottom: 1em;
+    }
+
+    .card-body {
+      flex: none;
+    }
+
+    .buttons {
+      margin: .2em;
   }
 }

@@ -1,99 +1,94 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import {
-  Button,
-  Form,
-  FormGroup,
-  Label,
-  Input
+  Button, Form, FormGroup, Label, Input
 } from 'reactstrap';
 import PropTypes from 'prop-types';
 import { addPlayer, updatePlayer } from '../helpers/data/PlayerData';
 
 const PlayerForm = ({
   formTitle,
-  setPlayer,
+  setPlayers,
   name,
-  position,
-  uid,
+  instrument,
+  imageUrl,
   firebaseKey
 }) => {
-  const [player, setplayer] = useState({
+  const [player, setPlayer] = useState({
     name: name || '',
-    position: position || '',
-    uid: uid || 0,
+    instrument: instrument || '',
+    imageUrl: imageUrl || '',
     firebaseKey: firebaseKey || null
   });
   const history = useHistory();
 
   const handleInputChange = (e) => {
-    setplayer((prevState) => ({
+    setPlayer((prevState) => ({
       ...prevState,
-      [e.target.name]:
-        e.target.name === 'uid' ? Number(e.target.value) : e.target.value,
+      [e.target.name]: e.target.value,
     }));
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (player.firebaseKey) {
-      updatePlayer(player).then(setPlayer);
+      updatePlayer(player).then(setPlayers);
     } else {
       addPlayer(player).then((response) => {
-        setPlayer(response);
-        history.push('/player');
+        setPlayers(response);
+        history.push('/players');
       });
 
       setPlayer({
         name: '',
-        position: '',
-        uid: 0,
+        instrument: '',
+        imageUrl: 0,
         firebaseKey: null
       });
     }
   };
 
   return (
-    <div className='player-form'>
-      <Form id='addPlayerForm' autoComplete='off' onSubmit={handleSubmit}>
-        <h2>{formTitle}</h2>
-        <FormGroup>
-          <Label for="name">Name:</Label>
+    <div className='player-form-container'>
+      <Form className="player-form" id='addPlayerForm' autoComplete='off' onSubmit={handleSubmit}>
+        <h4>{formTitle}</h4>
+        <FormGroup className="form-field">
+          <Label for="name">Enter Musician Name:</Label>
           <Input
             name='name'
             id='name'
             value={player.name}
             type='text'
-            placeholder='Enter a Player Name'
+            placeholder=''
             onChange={handleInputChange}
           />
         </FormGroup>
 
-        <FormGroup>
-          <Label for="position">Position:</Label>
+        <FormGroup className="form-field">
+          <Label for="instrument">Enter Instrument:</Label>
           <Input
-            name='position'
-            id='position'
-            value={player.position}
+            name='instrument'
+            id='instrument'
+            value={player.instrument}
             type='text'
-            placeholder='Enter a position Name'
+            placeholder=''
             onChange={handleInputChange}
           />
         </FormGroup>
 
-        <FormGroup>
-          <Label for="uid">UID:</Label>
+        <FormGroup className="form-field">
+          <Label for="imageUrl">ImageUrl:</Label>
           <Input
-            name='uid'
-            id='uid'
-            value={player.uid}
-            type='number'
-            placeholder='Enter a uid'
+            name='imageUrl'
+            id='imageUrl'
+            value={player.imageUrl}
+            type='text'
+            placeholder=''
             onChange={handleInputChange}
           />
         </FormGroup>
 
-        <Button type='submit'>Submit</Button>
+        <Button className="submit-btn"size="sm" type='submit'>Submit</Button>
       </Form>
     </div>
   );
@@ -101,10 +96,10 @@ const PlayerForm = ({
 
 PlayerForm.propTypes = {
   formTitle: PropTypes.string.isRequired,
-  setPlayer: PropTypes.func,
+  setPlayers: PropTypes.func,
   name: PropTypes.string,
-  position: PropTypes.string,
-  uid: PropTypes.number,
+  instrument: PropTypes.string,
+  imageUrl: PropTypes.number,
   firebaseKey: PropTypes.string
 };
 
