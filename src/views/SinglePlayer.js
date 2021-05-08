@@ -4,19 +4,19 @@ import SinglePlayerCard from '../components/SinglePlayerCard';
 import { getSinglePlayer } from '../helpers/data/PlayerData';
 
 export default function SinglePlayer() {
-  const [player, setPlayers] = useState({});
+  const [player, setPlayer] = useState({});
   const { firebaseKey } = useParams();
 
   useEffect(() => {
     getSinglePlayer(firebaseKey)
-      .then(setPlayers);
+      .then(setPlayer);
   }, []);
 
   return (
     <div>
       <SinglePlayerCard player={player}>
         <h2>{player.name}</h2>
-        <h3>{player.postion}</h3>
+        <h3>{player.instrument}</h3>
         <h3>{player.imageUrl}</h3>
       </SinglePlayerCard>
     </div>
