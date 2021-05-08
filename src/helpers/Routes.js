@@ -19,7 +19,7 @@ export default function Routes({ players, setPlayers, user }) {
           component={() => <Players players={players} setPlayers={setPlayers} />}
         />
         <Route
-          path='/SinglePlayers/:firebaseKey'
+          path='/players/:firebaseKey'
           component={SinglePlayer}
           user={user}
         />
