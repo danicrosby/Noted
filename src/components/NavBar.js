@@ -36,7 +36,7 @@ const NavBar = ({ user }) => {
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="ml-auto" navbar>
-            { user && authenticated()}
+            { user && authenticated() }
             {
               user !== null
               && <NavItem>
