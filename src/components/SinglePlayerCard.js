@@ -1,11 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export default function SinglePlayerCard({ children, player }) {
+export default function SinglePlayerCard({ player }) {
   return (
-    <div>
+    <div className="single-player-card">
       <h1>{player.name}</h1>
-        {children}
+      <h6>{player.instrument}</h6>
+      <img src={player.imageUrl}></img>
     </div>
   );
 }

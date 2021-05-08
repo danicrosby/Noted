@@ -82,7 +82,7 @@ const PlayerForm = ({
             name='imageUrl'
             id='imageUrl'
             value={player.imageUrl}
-            type='text'
+            type='url'
             placeholder=''
             onChange={handleInputChange}
           />
