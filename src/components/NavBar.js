@@ -7,7 +7,8 @@ import {
   NavbarToggler,
   Nav,
   NavItem,
-  Button
+  Button,
+  Badge
 } from 'reactstrap';
 import { signInUser, signOutUser } from '../helpers/auth';
 
@@ -19,10 +20,10 @@ const NavBar = ({ user }) => {
   const authenticated = () => (
     <>
       <NavItem>
-        <Link className="nav-link" to="/add-player">Add Player</Link>
+        <Link className="nav-link" to="/players">Members</Link>
       </NavItem>
       <NavItem>
-        <Link className="nav-link" to="/players">Player Cards</Link>
+        <Link className="nav-link mr-3" to="/add-player">Add Member</Link>
       </NavItem>
     </>
   );
@@ -30,18 +31,19 @@ const NavBar = ({ user }) => {
   return (
     <div>
       <Navbar color="light" light expand="md">
-        <Link className="navbar-brand" to="/">NavBar</Link>
+        <Link className="navbar-brand" to="/">
+          <h4><Badge color="secondary">Noted</Badge></h4></Link>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
-          <Nav className="mr-auto" navbar>
+          <Nav className="ml-auto" navbar>
             { user && authenticated()}
             {
               user !== null
               && <NavItem>
                 {
                   user
-                    ? <Button color='danger' onClick={signOutUser}>Sign Out</Button>
-                    : <Button color='info' onClick={signInUser}>Sign In</Button>
+                    ? <Button className="sign-in-out-button" outline size="sm" color='danger' onClick={signOutUser}>Sign Out</Button>
+                    : <Button className="sign-in-out-button" outline size="sm" color='info' onClick={signInUser}>Sign In</Button>
                 }
               </NavItem>
             }

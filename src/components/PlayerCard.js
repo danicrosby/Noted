@@ -4,7 +4,8 @@ import {
   Button,
   Card,
   CardText,
-  CardTitle
+  CardTitle,
+  CardImg
 } from 'reactstrap';
 import PropTypes from 'prop-types';
 import { deletePlayer } from '../helpers/data/PlayerData';
@@ -13,7 +14,7 @@ import PlayerForm from './PlayerForm';
 const PlayerCard = ({
   firebaseKey,
   name,
-  position,
+  instrument,
   imageUrl,
   setPlayers
 }) => {
@@ -30,7 +31,7 @@ const PlayerCard = ({
         setEditing((prevState) => !prevState);
         break;
       case 'view':
-        history.push(`/player/${firebaseKey}`);
+        history.push(`/players/${firebaseKey}`);
         break;
       default:
         console.warn('nothing selected');
@@ -39,21 +40,22 @@ const PlayerCard = ({
 
   return (
     <Card body>
+      <CardImg className="card-img" top width="100%" src={imageUrl} alt="Card image cap" />
       <CardTitle tag="h5">{name}</CardTitle>
-      <CardText>Position: {position}</CardText>
-      <Button color="warning" onClick={() => handleClick('view')}>View Player</Button>
-      <Button color="danger" onClick={() => handleClick('delete')}>Delete Player</Button>
-      <Button color="info" onClick={() => handleClick('edit')}>
-        {editing ? 'Close Form' : 'Edit Player'}
+      <CardText>{instrument}</CardText>
+      <Button className="buttons" outline size="sm" color="info" onClick={() => handleClick('view')}>Musician Details</Button>
+      <Button className="buttons" outline size="sm" color="danger" onClick={() => handleClick('delete')}>Delete Musician</Button>
+      <Button className="buttons" outline size="sm" color="secondary" onClick={() => handleClick('edit')}>
+        {editing ? 'Close Form' : 'Edit Musician'}
       </Button>
       {
         editing && <PlayerForm
-          formTitle='Edit Player'
+          formTitle='Edit Musician'
           setPlayers={setPlayers}
           firebaseKey={firebaseKey}
           name={name}
-          position={position}
-          imgageUrl={imageUrl}
+          instrument={instrument}
+          imageUrl={imageUrl}
         />
       }
     </Card>
@@ -63,10 +65,9 @@ const PlayerCard = ({
 PlayerCard.propTypes = {
   firebaseKey: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
-  uid: PropTypes.string.isRequired,
-  position: PropTypes.number.isRequired,
-  setPlayers: PropTypes.func,
-  imageUrl: PropTypes.string
+  imageUrl: PropTypes.string.isRequired,
+  instrument: PropTypes.number.isRequired,
+  setPlayers: PropTypes.func
 };
 
 export default PlayerCard;

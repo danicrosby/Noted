@@ -4,9 +4,8 @@ import PropTypes from 'prop-types';
 export default function SinglePlayerCard({ children, player }) {
   return (
     <div>
-      <h1>player: {player.name }</h1>
+      <h1>{player.name}</h1>
         {children}
-      <footer>Footer</footer>
     </div>
   );
 }

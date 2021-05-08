@@ -19,7 +19,7 @@ function App() {
         // something to happen
         const userInfoObj = {
           name: authed.displayName,
-          imageUrl: authed.photoURL,
+          imageUrl: authed.imageUrl,
           uid: authed.uid,
           user: authed.email.split('@')[0]
         };
