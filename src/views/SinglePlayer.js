@@ -13,11 +13,11 @@ export default function SinglePlayer() {
   }, []);
 
   return (
-    <div className="single-player-card-container">
+    <div className="card-container">
       <SinglePlayerCard player={player}>
         <h2>{player.name}</h2>
         <h3>{player.instrument}</h3>
-        <h3>{player.imageUrl}</h3>
+        <img scr="{player.imageUrl}"/>
       </SinglePlayerCard>
     </div>
   );

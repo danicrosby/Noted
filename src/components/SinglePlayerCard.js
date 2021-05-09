@@ -1,16 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {
+  Card,
+  CardText,
+  CardTitle,
+  CardImg
+} from 'reactstrap';
 
 export default function SinglePlayerCard({ player }) {
   return (
-    <div>
-      <h1>{player.name}</h1>
-      <h6>{player.instrument}</h6>
-      <img src={player.imageUrl}></img>
-    </div>
+    <Card body className="single-card">
+    <CardTitle tag="h5">{player.name}</CardTitle>
+    <CardText>{player.instrument}</CardText>
+    <CardImg className="card-img" top width="100%" src={player.imageUrl} />
+    </Card>
   );
 }
 
 SinglePlayerCard.propTypes = {
+  children: PropTypes.any,
   player: PropTypes.object
 };
