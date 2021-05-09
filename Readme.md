@@ -1,6 +1,6 @@
 # Band Roster [![Netlify Status](https://api.netlify.com/api/v1/badges/94c6f1e6-8d34-487e-a918-9452c679d54f/deploy-status)](https://app.netlify.com/sites/band-roster-dc/deploys)
 
-Hello, and welcome to my app. I created ....
+Hello, and welcome to my app. I created .... Band Roster is an app where you can create, edit, delete and view band members info.
 
 ## Relevant Links
 - [Deployed Site](band-roster-dc.netlify.app)
