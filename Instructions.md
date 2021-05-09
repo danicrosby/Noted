@@ -1,13 +1,5 @@
-# React Template
-** Run `npm i`.
-
-- [Steps to deploy](https://github.com/nss-nightclass-projects/REACT-Deployment-Netlify)
-
-# Sports Roster
+# Sports Roster Requirements
 For this project you will be building a team roster for a sports team.  Pick any sport you want (but ~hockey~ American Football is clearly the best choice).  Theme your project based on the sport.
-
-## Requirements
-Here is the ERD for this project:
 
 ![ERD](./images/react_roster_erd.png)
 
