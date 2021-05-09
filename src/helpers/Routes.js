@@ -7,7 +7,7 @@ import Players from '../views/Players';
 import SinglePlayer from '../views/SinglePlayer';
 import NotFound from '../views/NotFound';
 
-export default function Routes({ players, setPlayers, user }) {
+export default function Routes({ players, setPlayers }) {
   return (
     <div>
       <Switch>
@@ -15,18 +15,15 @@ export default function Routes({ players, setPlayers, user }) {
         <Route
           exact
           path='/players'
-          user={user}
           component={() => <Players players={players} setPlayers={setPlayers} />}
         />
         <Route
           path='/players/:firebaseKey'
           component={SinglePlayer}
-          user={user}
         />
         <Route
           path='/add-player'
           component={() => <AddPlayer setPlayers={setPlayers} />}
-          user={user}
         />
         <Route path='*' component={NotFound} />
       </Switch>
@@ -36,6 +33,5 @@ export default function Routes({ players, setPlayers, user }) {
 
 Routes.propTypes = {
   players: PropTypes.array.isRequired,
-  setPlayers: PropTypes.func.isRequired,
-  user: PropTypes.any
+  setPlayers: PropTypes.func.isRequired
 };
