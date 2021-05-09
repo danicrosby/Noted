@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import {
-  Button, Form, FormGroup, Label, Input
+  Button,
+  Form,
+  FormGroup,
+  Label,
+  Input
 } from 'reactstrap';
 import PropTypes from 'prop-types';
 import { addPlayer, updatePlayer } from '../helpers/data/PlayerData';
