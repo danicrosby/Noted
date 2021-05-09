@@ -40,7 +40,7 @@ const PlayerCard = ({
 
   return (
     <Card body>
-      <CardImg className="card-img" top width="100%" src={imageUrl} alt="Card image cap" />
+      <CardImg className="card-img" top width="100%" src={imageUrl} />
       <CardTitle tag="h5">{name}</CardTitle>
       <CardText>{instrument}</CardText>
       <Button className="buttons" outline size="sm" color="info" onClick={() => handleClick('view')}>Musician Details</Button>
