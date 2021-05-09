@@ -7,6 +7,7 @@ Hello, and welcome to my app. I created: ....
 - [Wireframes]()
 - [ERD]()
 - [Project Board]()
+- [Loom Video](https://www.loom.com/share/4ad3b1c567bf4c0f949e884b99c213d2)
 
 ### Project Screenshot
 
