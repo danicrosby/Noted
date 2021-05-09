@@ -4,12 +4,13 @@ Hello, and welcome to my app. I created: ....
 
 ## Relevant Links
 - [Deployed Site](band-roster-dc.netlify.app)
-- [Wireframe](https://www.figma.com/file/jycMuzpJ30oFgROipa5oT1/Sports-Roster?node-id=11%3A1
+- [Wireframe](https://www.figma.com/file/jycMuzpJ30oFgROipa5oT1/Sports-Roster?node-id=11%3A1)
 - [Loom Video](https://www.loom.com/share/4ad3b1c567bf4c0f949e884b99c213d2)
 
 https://www.loom.com/share/4ad3b1c567bf4c0f949e884b99c213d2
 
-### Project Screenshot
+### Project Screenshosts
+
 <img width="1436" alt="Screen Shot 2021-05-09 at 4 30 35 PM" src="https://user-images.githubusercontent.com/68397076/117587499-e3bfe180-b0e3-11eb-9b34-ea7f0f6dd915.png">
 
 <img width="1436" alt="Screen Shot 2021-05-09 at 4 31 05 PM" src="https://user-images.githubusercontent.com/68397076/117587518-f63a1b00-b0e3-11eb-84a6-68ec4637fda1.png">
