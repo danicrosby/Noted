@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 export default function SinglePlayerCard({ player }) {
   return (
-    <div className="single-player-card">
+    <div>
       <h1>{player.name}</h1>
       <h6>{player.instrument}</h6>
       <img src={player.imageUrl}></img>
